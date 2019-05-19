@@ -1,14 +1,14 @@
 //
-//  Directory.swift
+//  Folder.swift
 //  Persist
 //
-//  Created by Fatih Şen on 13.05.2019.
+//  Created by Fatih Şen on 15.05.2019.
 //  Copyright © 2019 Fatih Şen. All rights reserved.
 //
 
 import Foundation
 
-public enum Directory: Equatable, CustomStringConvertible {
+public enum Folder: Equatable, CustomStringConvertible {
 	
 	case document
 	case cache
@@ -26,12 +26,12 @@ public enum Directory: Equatable, CustomStringConvertible {
 		}
 	}
 	
-	public static func ==(lhs: Directory, rhs: Directory) -> Bool {
+	public static func ==(lhs: Folder, rhs: Folder) -> Bool {
 		switch (lhs, rhs) {
 			case (.document, .document), (.cache, .cache), (.applicationSupport, .applicationSupport), (.temporary, .temporary):
 				return true
-		case (let .shared(name: n1), let .shared(name: n2)):
-			return n1 == n2
+			case (let .shared(name: n1), let .shared(name: n2)):
+				return n1 == n2
 			default:
 				return false
 		}
