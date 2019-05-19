@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		0B7CE8E2EA2C7589554EC140 /* Pods_PersistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4461BD9A9127B49BA04773B /* Pods_PersistTests.framework */; };
+		3DB921A2228C2B320029B5F7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921A1228C2B320029B5F7 /* File.swift */; };
+		3DB921A4228C2B4A0029B5F7 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921A3228C2B4A0029B5F7 /* Folder.swift */; };
+		3DB921A6228C30AD0029B5F7 /* DataPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921A5228C30AD0029B5F7 /* DataPersistance.swift */; };
+		3DB921AA228C31410029B5F7 /* Persist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921A9228C31410029B5F7 /* Persist.swift */; };
+		3DB921AE228C31EF0029B5F7 /* ImagePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921AD228C31EF0029B5F7 /* ImagePersistance.swift */; };
+		3DB921B0228C32330029B5F7 /* CodablePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921AF228C32330029B5F7 /* CodablePersistance.swift */; };
+		3DB921B2228C329B0029B5F7 /* Schedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B1228C329B0029B5F7 /* Schedulers.swift */; };
+		3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B3228C36CC0029B5F7 /* URL+Common.swift */; };
+		3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B5228C3B010029B5F7 /* String+Common.swift */; };
 		3DFF5B742289A42900DCF709 /* Persist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFF5B6A2289A42900DCF709 /* Persist.framework */; };
 		3DFF5B792289A42900DCF709 /* PersistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B782289A42900DCF709 /* PersistTests.swift */; };
 		3DFF5B7B2289A42900DCF709 /* Persist.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DFF5B6D2289A42900DCF709 /* Persist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DFF5B872289A57800DCF709 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B862289A57800DCF709 /* Constants.swift */; };
-		3DFF5B8B2289A72600DCF709 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B8A2289A72600DCF709 /* Directory.swift */; };
-		3DFF5B8F2289AEBF00DCF709 /* Persist+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B8E2289AEBF00DCF709 /* Persist+Data.swift */; };
-		3DFF5B912289AEE100DCF709 /* Persist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B902289AEE100DCF709 /* Persist.swift */; };
-		3DFF5B932289AFD600DCF709 /* Persist+Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B922289AFD600DCF709 /* Persist+Directory.swift */; };
-		3DFF5B952289B68B00DCF709 /* URL+Sanity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B942289B68B00DCF709 /* URL+Sanity.swift */; };
-		3DFF5B972289BCB000DCF709 /* Persist+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B962289BCB000DCF709 /* Persist+UIImage.swift */; };
-		3DFF5B992289C24000DCF709 /* Persist+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B982289C24000DCF709 /* Persist+Codable.swift */; };
 		832291B6BB1685A8E60F2EDF /* Pods_Persist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4016F22E29E4882AD7C523 /* Pods_Persist.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,15 @@
 
 /* Begin PBXFileReference section */
 		3123F7F9BEB5741BDE1C1B1A /* Pods-Persist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Persist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Persist/Pods-Persist.release.xcconfig"; sourceTree = "<group>"; };
+		3DB921A1228C2B320029B5F7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		3DB921A3228C2B4A0029B5F7 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		3DB921A5228C30AD0029B5F7 /* DataPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistance.swift; sourceTree = "<group>"; };
+		3DB921A9228C31410029B5F7 /* Persist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persist.swift; sourceTree = "<group>"; };
+		3DB921AD228C31EF0029B5F7 /* ImagePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePersistance.swift; sourceTree = "<group>"; };
+		3DB921AF228C32330029B5F7 /* CodablePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodablePersistance.swift; sourceTree = "<group>"; };
+		3DB921B1228C329B0029B5F7 /* Schedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedulers.swift; sourceTree = "<group>"; };
+		3DB921B3228C36CC0029B5F7 /* URL+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Common.swift"; sourceTree = "<group>"; };
+		3DB921B5228C3B010029B5F7 /* String+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
 		3DFF5B6A2289A42900DCF709 /* Persist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Persist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFF5B6D2289A42900DCF709 /* Persist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Persist.h; sourceTree = "<group>"; };
 		3DFF5B6E2289A42900DCF709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,13 +52,6 @@
 		3DFF5B782289A42900DCF709 /* PersistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistTests.swift; sourceTree = "<group>"; };
 		3DFF5B7A2289A42900DCF709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DFF5B862289A57800DCF709 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		3DFF5B8A2289A72600DCF709 /* Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Directory.swift; sourceTree = "<group>"; };
-		3DFF5B8E2289AEBF00DCF709 /* Persist+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persist+Data.swift"; sourceTree = "<group>"; };
-		3DFF5B902289AEE100DCF709 /* Persist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persist.swift; sourceTree = "<group>"; };
-		3DFF5B922289AFD600DCF709 /* Persist+Directory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persist+Directory.swift"; sourceTree = "<group>"; };
-		3DFF5B942289B68B00DCF709 /* URL+Sanity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Sanity.swift"; sourceTree = "<group>"; };
-		3DFF5B962289BCB000DCF709 /* Persist+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persist+UIImage.swift"; sourceTree = "<group>"; };
-		3DFF5B982289C24000DCF709 /* Persist+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Persist+Codable.swift"; sourceTree = "<group>"; };
 		3FB3C3A3F11B3670878C20DF /* Pods-PersistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersistTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PersistTests/Pods-PersistTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4418802301B96842692B9751 /* Pods-PersistTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PersistTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PersistTests/Pods-PersistTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A25A2D2A78CCC2B711697DA /* Pods-Persist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Persist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Persist/Pods-Persist.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,7 +107,9 @@
 				3DFF5B842289A50100DCF709 /* Common */,
 				3DFF5B6D2289A42900DCF709 /* Persist.h */,
 				3DFF5B6E2289A42900DCF709 /* Info.plist */,
-				3DFF5B902289AEE100DCF709 /* Persist.swift */,
+				3DB921A1228C2B320029B5F7 /* File.swift */,
+				3DB921A3228C2B4A0029B5F7 /* Folder.swift */,
+				3DB921A9228C31410029B5F7 /* Persist.swift */,
 			);
 			path = Persist;
 			sourceTree = "<group>";
@@ -120,11 +126,11 @@
 		3DFF5B842289A50100DCF709 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				3DFF5B8E2289AEBF00DCF709 /* Persist+Data.swift */,
-				3DFF5B922289AFD600DCF709 /* Persist+Directory.swift */,
-				3DFF5B942289B68B00DCF709 /* URL+Sanity.swift */,
-				3DFF5B962289BCB000DCF709 /* Persist+UIImage.swift */,
-				3DFF5B982289C24000DCF709 /* Persist+Codable.swift */,
+				3DB921A5228C30AD0029B5F7 /* DataPersistance.swift */,
+				3DB921AD228C31EF0029B5F7 /* ImagePersistance.swift */,
+				3DB921AF228C32330029B5F7 /* CodablePersistance.swift */,
+				3DB921B3228C36CC0029B5F7 /* URL+Common.swift */,
+				3DB921B5228C3B010029B5F7 /* String+Common.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -133,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				3DFF5B862289A57800DCF709 /* Constants.swift */,
-				3DFF5B8A2289A72600DCF709 /* Directory.swift */,
+				3DB921B1228C329B0029B5F7 /* Schedulers.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -339,14 +345,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DFF5B8F2289AEBF00DCF709 /* Persist+Data.swift in Sources */,
-				3DFF5B932289AFD600DCF709 /* Persist+Directory.swift in Sources */,
+				3DB921A6228C30AD0029B5F7 /* DataPersistance.swift in Sources */,
+				3DB921B0228C32330029B5F7 /* CodablePersistance.swift in Sources */,
+				3DB921AE228C31EF0029B5F7 /* ImagePersistance.swift in Sources */,
 				3DFF5B872289A57800DCF709 /* Constants.swift in Sources */,
-				3DFF5B912289AEE100DCF709 /* Persist.swift in Sources */,
-				3DFF5B8B2289A72600DCF709 /* Directory.swift in Sources */,
-				3DFF5B972289BCB000DCF709 /* Persist+UIImage.swift in Sources */,
-				3DFF5B952289B68B00DCF709 /* URL+Sanity.swift in Sources */,
-				3DFF5B992289C24000DCF709 /* Persist+Codable.swift in Sources */,
+				3DB921AA228C31410029B5F7 /* Persist.swift in Sources */,
+				3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */,
+				3DB921B2228C329B0029B5F7 /* Schedulers.swift in Sources */,
+				3DB921A2228C2B320029B5F7 /* File.swift in Sources */,
+				3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */,
+				3DB921A4228C2B4A0029B5F7 /* Folder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

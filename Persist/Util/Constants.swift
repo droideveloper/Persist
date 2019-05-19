@@ -16,10 +16,10 @@ public class Constants {
 	static let EXT_JPG = ".jpg"
 	static let EXT_JPEG = ".jpeg"
 	
-	static let DIR_DOCUMENT = "<Application_Home>/Document"
-	static let DIR_CACHE = "<Application_Home>/Cache"
+	static let DIR_DOCUMENT = "<Application_Home>/Documents"
+	static let DIR_CACHE = "<Application_Home>/Caches"
 	static let DIR_APPLICATION_SUPPORT = "<Application_Home>/Library/Application"
-	static let DIR_TEMPORARY = "<Application_Home>/temp"
+	static let DIR_TEMPORARY = "<Application_Home>/tmp"
 	
 	
 	static let CON_NOT_ACCESS_TEMPORARY_DIRECTORY = "can not access temperorary directory"
