@@ -11,6 +11,8 @@ import RxSwift
 
 public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	
+	public static let instance = Persist(fileManager: .default)
+	
 	private let fileManager: FileManager
 	private let decoder: JSONDecoder
 	private let encoder: JSONEncoder
