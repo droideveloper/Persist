@@ -11,17 +11,45 @@ import RxSwift
 
 public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	
-	public static let instance = Persist(fileManager: .default)
+	public static var `default`: Persist {
+		get {
+			return instance
+		}
+	}
+
+	private static let instance = Persist(fileManager: .default)
 	
 	private let fileManager: FileManager
 	private let decoder: JSONDecoder
 	private let encoder: JSONEncoder
 	
 	// parameters can be changed by user needs
-	public init(fileManager: FileManager, decoder: JSONDecoder = JSONDecoder(), encoder: JSONEncoder = JSONEncoder()) {
+	private init(fileManager: FileManager, decoder: JSONDecoder = JSONDecoder(), encoder: JSONEncoder = JSONEncoder()) {
 		self.fileManager = fileManager
 		self.encoder = encoder
 		self.decoder = decoder
+	}
+	
+	public func encodingStrategies(outputFormating: JSONEncoder.OutputFormatting? = nil,
+																 dateEncoding: JSONEncoder.DateEncodingStrategy? = nil,
+																 dataEncoding: JSONEncoder.DataEncodingStrategy? = nil,
+																 nonConformingFloatEncoding: JSONEncoder.NonConformingFloatEncodingStrategy? = nil,
+																 keyEncoding: JSONEncoder.KeyEncodingStrategy? = nil) {
+		encoder.outputFormatting = outputFormating ?? encoder.outputFormatting
+		encoder.dateEncodingStrategy = dateEncoding ?? encoder.dateEncodingStrategy
+		encoder.dataEncodingStrategy = dataEncoding ?? encoder.dataEncodingStrategy
+		encoder.nonConformingFloatEncodingStrategy = nonConformingFloatEncoding ?? encoder.nonConformingFloatEncodingStrategy
+		encoder.keyEncodingStrategy = keyEncoding ?? encoder.keyEncodingStrategy
+	}
+	
+	public func decodingStrategies(dateDecoding: JSONDecoder.DateDecodingStrategy? = nil,
+																 dataDecoding: JSONDecoder.DataDecodingStrategy? = nil,
+																 nonConformingFloatDecoding: JSONDecoder.NonConformingFloatDecodingStrategy? = nil,
+																 keyDecoding: JSONDecoder.KeyDecodingStrategy? = nil) {
+		decoder.dateDecodingStrategy = dateDecoding ?? decoder.dateDecodingStrategy
+		decoder.dataDecodingStrategy = dataDecoding ?? decoder.dataDecodingStrategy
+		decoder.nonConformingFloatDecodingStrategy = nonConformingFloatDecoding ?? decoder.nonConformingFloatDecodingStrategy
+		decoder.keyDecodingStrategy = keyDecoding ?? decoder.keyDecodingStrategy
 	}
 	
 	// write Data
