@@ -17,6 +17,7 @@
 		3DB921B2228C329B0029B5F7 /* Schedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B1228C329B0029B5F7 /* Schedulers.swift */; };
 		3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B3228C36CC0029B5F7 /* URL+Common.swift */; };
 		3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B5228C3B010029B5F7 /* String+Common.swift */; };
+		3DFB93AD22987D7D0081659A /* PersistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB93AC22987D7D0081659A /* PersistError.swift */; };
 		3DFF5B742289A42900DCF709 /* Persist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFF5B6A2289A42900DCF709 /* Persist.framework */; };
 		3DFF5B792289A42900DCF709 /* PersistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B782289A42900DCF709 /* PersistTests.swift */; };
 		3DFF5B7B2289A42900DCF709 /* Persist.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DFF5B6D2289A42900DCF709 /* Persist.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,6 +46,7 @@
 		3DB921B1228C329B0029B5F7 /* Schedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedulers.swift; sourceTree = "<group>"; };
 		3DB921B3228C36CC0029B5F7 /* URL+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Common.swift"; sourceTree = "<group>"; };
 		3DB921B5228C3B010029B5F7 /* String+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
+		3DFB93AC22987D7D0081659A /* PersistError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistError.swift; sourceTree = "<group>"; };
 		3DFF5B6A2289A42900DCF709 /* Persist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Persist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFF5B6D2289A42900DCF709 /* Persist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Persist.h; sourceTree = "<group>"; };
 		3DFF5B6E2289A42900DCF709 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				3DB921AF228C32330029B5F7 /* CodablePersistance.swift */,
 				3DB921B3228C36CC0029B5F7 /* URL+Common.swift */,
 				3DB921B5228C3B010029B5F7 /* String+Common.swift */,
+				3DFB93AC22987D7D0081659A /* PersistError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				3DB921A2228C2B320029B5F7 /* File.swift in Sources */,
 				3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */,
 				3DB921A4228C2B4A0029B5F7 /* Folder.swift in Sources */,
+				3DFB93AD22987D7D0081659A /* PersistError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

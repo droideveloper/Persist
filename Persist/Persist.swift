@@ -16,6 +16,24 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			return instance
 		}
 	}
+	
+	public static var `data`: DataPeristance {
+		get {
+			return `default`
+		}
+	}
+	
+	public static var `image`: ImagePersistance {
+		get {
+			return `default`
+		}
+	}
+	
+	public static var `codable`: CodablePersistance {
+		get {
+			return `default`
+		}
+	}
 
 	private static let instance = Persist(fileManager: .default)
 	
@@ -91,8 +109,7 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			return write(data: data, to: file)
 		} else {
 			return Completable.create { observer in
-				let error = "image should be .png or .jpg".toError(with: 404)
-				observer(.error(error))
+				observer(.error(PersistError.illegalType(type: "only .png or .jpg supported")))
 				return Disposables.create()
 			}
 		}
@@ -105,8 +122,7 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			if let image = UIImage(data: data) {
 				return Observable.just(image)
 			}
-			let error = "can not convert data into image".toError(with: 404)
-			return Observable.error(error)
+			return Observable.error(PersistError.illegalType(type: "\(String(describing: UIImage.self))"))
 		}
 	}
 	
