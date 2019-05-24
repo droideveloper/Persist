@@ -29,21 +29,21 @@ public struct File: Equatable {
 				search = .applicationSupportDirectory
 			case .shared(let name):
 				guard var uri = fileManager.containerURL(forSecurityApplicationGroupIdentifier: name) else {
-					throw "can not access secure group identifier as \(name)".toError(with: 401)
+					throw PersistError.illegalAccess(url: "\(name)")
 				}
 				uri = try uri.checkPathSanity(path: path)
 				uri = try uri.checkLocalFileSanity()
 				return uri
 			case .temporary:
 				guard var uri = URL(string: NSTemporaryDirectory()) else {
-					throw "can not access \(NSTemporaryDirectory())".toError(with: 401)
+					throw PersistError.illegalAccess(url: "\(NSTemporaryDirectory())")
 				}
 				uri = try uri.checkPathSanity(path: path)
 				uri = try uri.checkLocalFileSanity()
 				return uri
 		}
 		guard var uri = fileManager.urls(for: search, in: .userDomainMask).first else {
-			throw "can not access file for \(search)".toError(with: 401)
+			throw PersistError.illegalAccess(url: "\(search)")
 		}
 		uri = try uri.checkPathSanity(path: path)
 		uri = try uri.checkLocalFileSanity()

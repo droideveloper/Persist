@@ -17,7 +17,7 @@ public extension URL {
 			if let uri = URL(string: filePrefix + absoluteString) {
 				return uri
 			}
-			throw "illegal url \(filePrefix + absoluteString)".toError(with: 404)
+			throw PersistError.illegalAccess(url: "\(filePrefix + absoluteString)")
 		}
 		return self
 	}

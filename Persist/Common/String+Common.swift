@@ -15,8 +15,4 @@ public extension String {
 			return ""
 		}
 	}
-	
-	func toError(with code: Int?) -> NSError {
-		return NSError(domain: self, code: code ?? -1, userInfo: nil)
-	}
 }
