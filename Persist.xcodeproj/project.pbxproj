@@ -14,7 +14,6 @@
 		3DB921AA228C31410029B5F7 /* Persist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921A9228C31410029B5F7 /* Persist.swift */; };
 		3DB921AE228C31EF0029B5F7 /* ImagePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921AD228C31EF0029B5F7 /* ImagePersistance.swift */; };
 		3DB921B0228C32330029B5F7 /* CodablePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921AF228C32330029B5F7 /* CodablePersistance.swift */; };
-		3DB921B2228C329B0029B5F7 /* Schedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B1228C329B0029B5F7 /* Schedulers.swift */; };
 		3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B3228C36CC0029B5F7 /* URL+Common.swift */; };
 		3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B5228C3B010029B5F7 /* String+Common.swift */; };
 		3DFB93AD22987D7D0081659A /* PersistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB93AC22987D7D0081659A /* PersistError.swift */; };
@@ -43,7 +42,6 @@
 		3DB921A9228C31410029B5F7 /* Persist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persist.swift; sourceTree = "<group>"; };
 		3DB921AD228C31EF0029B5F7 /* ImagePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePersistance.swift; sourceTree = "<group>"; };
 		3DB921AF228C32330029B5F7 /* CodablePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodablePersistance.swift; sourceTree = "<group>"; };
-		3DB921B1228C329B0029B5F7 /* Schedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedulers.swift; sourceTree = "<group>"; };
 		3DB921B3228C36CC0029B5F7 /* URL+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Common.swift"; sourceTree = "<group>"; };
 		3DB921B5228C3B010029B5F7 /* String+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
 		3DFB93AC22987D7D0081659A /* PersistError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistError.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				3DFF5B862289A57800DCF709 /* Constants.swift */,
-				3DB921B1228C329B0029B5F7 /* Schedulers.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -354,7 +351,6 @@
 				3DFF5B872289A57800DCF709 /* Constants.swift in Sources */,
 				3DB921AA228C31410029B5F7 /* Persist.swift in Sources */,
 				3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */,
-				3DB921B2228C329B0029B5F7 /* Schedulers.swift in Sources */,
 				3DB921A2228C2B320029B5F7 /* File.swift in Sources */,
 				3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */,
 				3DB921A4228C2B4A0029B5F7 /* Folder.swift in Sources */,
