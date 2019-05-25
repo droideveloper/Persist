@@ -85,6 +85,12 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		}
 	}
 	
+	public func writeAsync(data: Data, to file: File) -> Disposable {
+		return write(data: data, to: file)
+			.subscribeOn(Schedulers.io)
+			.subscribe()
+	}
+	
 	// read Data
 	public func read(from file: File) -> Observable<Data> {
 		let fileManager = self.fileManager
@@ -101,6 +107,18 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		}
 	}
 	
+	public func readAsync(from file: File, success: @escaping (Data) -> Void) -> Disposable {
+		let dataSource: Observable<Data> = read(from: file)
+		return dataSource.subscribeOn(Schedulers.io)
+			.subscribe(onNext: success)
+	}
+	
+	public func readAsync(from file: File, success: @escaping (Data) -> Void, error: @escaping (Error) -> Void) -> Disposable {
+		let dataSource: Observable<Data> = read(from: file)
+		return dataSource.subscribeOn(Schedulers.io)
+			.subscribe(onNext: success, onError: error)
+	}
+	
 	// write UIImage
 	public func write(image: UIImage, to file: File) -> Completable {
 		if let data = image.pngData() {
@@ -115,6 +133,12 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		}
 	}
 	
+	public func writeAsync(image: UIImage, to file: File) -> Disposable {
+		return write(image: image, to: file)
+			.subscribeOn(Schedulers.io)
+			.subscribe()
+	}
+	
 	// read UIImage
 	public func read(from file: File) -> Observable<UIImage> {
 		let source: Observable<Data> = read(from: file)
@@ -124,6 +148,18 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			}
 			return Observable.error(PersistError.illegalType(type: "\(String(describing: UIImage.self))"))
 		}
+	}
+	
+	public func readAsync(from file: File, success: @escaping (UIImage) -> Void) -> Disposable {
+		let imageSource: Observable<UIImage> = read(from: file)
+		return imageSource.subscribeOn(Schedulers.io)
+			.subscribe(onNext: success)
+	}
+	
+	public func readAsync(from file: File, success: @escaping (UIImage) -> Void, error: @escaping (Error) -> Void) -> Disposable {
+		let imageSource: Observable<UIImage> = read(from: file)
+		return imageSource.subscribeOn(Schedulers.io)
+			.subscribe(onNext: success, onError: error)
 	}
 	
 	// write Encodable
@@ -140,6 +176,12 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		}.asCompletable()
 	}
 	
+	public func writeAsync<T>(data: T, to file: File) -> Disposable where T : Encodable {
+		return write(value: data, to: file)
+			.subscribeOn(Schedulers.io)
+			.subscribe()
+	}
+	
 	// read Decodable
 	public func read<T: Decodable>(from file: File) -> Observable<T> {
 		let decoder = self.decoder
@@ -152,5 +194,17 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 				return Observable.error(error)
 			}
 		}
+	}
+	
+	public func readAsync<T>(from file: File, success: @escaping (T) -> Void) -> Disposable where T : Decodable {
+		let dataSource: Observable<T> = read(from: file)
+		return dataSource.subscribeOn(Schedulers.io)
+			.subscribe(onNext: success)
+	}
+	
+	public func readAsync<T>(from file: File, success: @escaping (T) -> Void, error: @escaping (Error) -> Void) -> Disposable where T : Decodable {
+		let dataSource: Observable<T> = read(from: file)
+		return dataSource.subscribeOn(Schedulers.io)
+			.subscribe(onNext: success, onError: error)
 	}
 }

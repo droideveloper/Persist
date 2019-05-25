@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B7CE8E2EA2C7589554EC140 /* Pods_PersistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4461BD9A9127B49BA04773B /* Pods_PersistTests.framework */; };
+		3D156E57229918BB0089DC83 /* Schedulers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D156E56229918BB0089DC83 /* Schedulers.swift */; };
 		3DB921A2228C2B320029B5F7 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921A1228C2B320029B5F7 /* File.swift */; };
 		3DB921A4228C2B4A0029B5F7 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921A3228C2B4A0029B5F7 /* Folder.swift */; };
 		3DB921A6228C30AD0029B5F7 /* DataPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921A5228C30AD0029B5F7 /* DataPersistance.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		3123F7F9BEB5741BDE1C1B1A /* Pods-Persist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Persist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Persist/Pods-Persist.release.xcconfig"; sourceTree = "<group>"; };
+		3D156E56229918BB0089DC83 /* Schedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedulers.swift; sourceTree = "<group>"; };
 		3DB921A1228C2B320029B5F7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3DB921A3228C2B4A0029B5F7 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		3DB921A5228C30AD0029B5F7 /* DataPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistance.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				3DFF5B862289A57800DCF709 /* Constants.swift */,
+				3D156E56229918BB0089DC83 /* Schedulers.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				3DB921AA228C31410029B5F7 /* Persist.swift in Sources */,
 				3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */,
 				3DB921A2228C2B320029B5F7 /* File.swift in Sources */,
+				3D156E57229918BB0089DC83 /* Schedulers.swift in Sources */,
 				3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */,
 				3DB921A4228C2B4A0029B5F7 /* Folder.swift in Sources */,
 				3DFB93AD22987D7D0081659A /* PersistError.swift in Sources */,
