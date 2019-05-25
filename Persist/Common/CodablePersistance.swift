@@ -12,6 +12,6 @@ import RxSwift
 public protocol CodablePersistance {
 	
 	func write<T: Encodable>(value: T, to file: File) -> Completable
-	func read<T: Decodable>(from file: File, type: T.Type) -> Observable<T>
+	func read<T: Decodable>(from file: File) -> Observable<T>
 	
 }
