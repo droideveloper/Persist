@@ -13,4 +13,8 @@ public protocol ImagePersistance {
 	
 	func write(image: UIImage, to file: File) -> Completable
 	func read(from file: File) -> Observable<UIImage>
+	
+	func writeAsync(image: UIImage, to file: File) -> Disposable
+	func readAsync(from file: File, success: @escaping (UIImage) -> Void) -> Disposable
+	func readAsync(from file: File, success: @escaping (UIImage) -> Void, error: @escaping (Error) -> Void) -> Disposable
 }
