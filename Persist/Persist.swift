@@ -141,12 +141,12 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	}
 	
 	// read Decodable
-	public func read<T: Decodable>(from file: File, type: T.Type) -> Observable<T> {
+	public func read<T: Decodable>(from file: File) -> Observable<T> {
 		let decoder = self.decoder
 		let source: Observable<Data> = read(from: file)
 		return source.concatMap { data -> Observable<T> in
 			do {
-				let value = try decoder.decode(type, from: data)
+				let value = try decoder.decode(T.self, from: data)
 				return Observable.just(value)
 			} catch {
 				return Observable.error(error)
