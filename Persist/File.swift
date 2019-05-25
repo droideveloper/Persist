@@ -31,21 +31,21 @@ public struct File: Equatable {
 				guard var uri = fileManager.containerURL(forSecurityApplicationGroupIdentifier: name) else {
 					throw PersistError.illegalAccess(url: "\(name)")
 				}
-				uri = try uri.checkPathSanity(path: path)
+				uri = try uri.checkPathSanity(path: path, name: name)
 				uri = try uri.checkLocalFileSanity()
 				return uri
 			case .temporary:
 				guard var uri = URL(string: NSTemporaryDirectory()) else {
 					throw PersistError.illegalAccess(url: "\(NSTemporaryDirectory())")
 				}
-				uri = try uri.checkPathSanity(path: path)
+				uri = try uri.checkPathSanity(path: path, name: name)
 				uri = try uri.checkLocalFileSanity()
 				return uri
 		}
 		guard var uri = fileManager.urls(for: search, in: .userDomainMask).first else {
 			throw PersistError.illegalAccess(url: "\(search)")
 		}
-		uri = try uri.checkPathSanity(path: path)
+		uri = try uri.checkPathSanity(path: path, name: name)
 		uri = try uri.checkLocalFileSanity()
 		return uri
 	}
