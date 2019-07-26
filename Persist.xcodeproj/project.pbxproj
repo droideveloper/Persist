@@ -38,6 +38,7 @@
 /* Begin PBXFileReference section */
 		3123F7F9BEB5741BDE1C1B1A /* Pods-Persist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Persist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Persist/Pods-Persist.release.xcconfig"; sourceTree = "<group>"; };
 		3D156E56229918BB0089DC83 /* Schedulers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedulers.swift; sourceTree = "<group>"; };
+		3DB62D43229B106700A876C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3DB921A1228C2B320029B5F7 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		3DB921A3228C2B4A0029B5F7 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		3DB921A5228C30AD0029B5F7 /* DataPersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistance.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		3DFF5B602289A42900DCF709 = {
 			isa = PBXGroup;
 			children = (
+				3DB62D43229B106700A876C6 /* README.md */,
 				3DFF5B6C2289A42900DCF709 /* Persist */,
 				3DFF5B772289A42900DCF709 /* PersistTests */,
 				3DFF5B6B2289A42900DCF709 /* Products */,
