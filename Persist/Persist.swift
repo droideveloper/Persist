@@ -97,6 +97,12 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		return Observable.create { observer in
 			do {
 				let uri = try file.url(fileManager: fileManager)
+				if let path = file.path {
+					let allowedToRead = fileManager.fileExists(atPath: path)
+					if !allowedToRead {
+						throw PersistError.iilegalIO(name: file.name)
+					}
+				}
 				let data = try Data(contentsOf: uri)
 				observer.on(.next(data))
 				observer.on(.completed)
@@ -141,8 +147,15 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	
 	// read UIImage
 	public func read(from file: File) -> Observable<UIImage> {
+		let fileManager = self.fileManager
 		let source: Observable<Data> = read(from: file)
 		return source.concatMap { data -> Observable<UIImage> in
+			if let path = file.path {
+				let allowedToRead = fileManager.fileExists(atPath: path)
+				if !allowedToRead {
+					throw PersistError.iilegalIO(name: file.name)
+				}
+			}
 			if let image = UIImage(data: data) {
 				return Observable.just(image)
 			}
@@ -185,9 +198,16 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	// read Decodable
 	public func read<T: Decodable>(from file: File) -> Observable<T> {
 		let decoder = self.decoder
+		let fileManager = self.fileManager
 		let source: Observable<Data> = read(from: file)
 		return source.concatMap { data -> Observable<T> in
 			do {
+				if let path = file.path {
+					let allowedToRead = fileManager.fileExists(atPath: path)
+					if !allowedToRead {
+						throw PersistError.iilegalIO(name: file.name)
+					}
+				}
 				let value = try decoder.decode(T.self, from: data)
 				return Observable.just(value)
 			} catch {
