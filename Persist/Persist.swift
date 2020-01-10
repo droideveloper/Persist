@@ -73,13 +73,13 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	// write Data
 	public func write(data: Data, to file: File) -> Completable {
 		let fileManager = self.fileManager
-		return Completable.create { observer in
+		return Completable.create { emitter in
 			do {
 				let uri = try file.url(fileManager: fileManager)
 				try data.write(to: uri, options: .atomic)
-				observer(.completed)
+				emitter(.completed)
 			} catch {
-				observer(.error(error))
+				emitter(.error(error))
 			}
 			return Disposables.create()
 		}
@@ -94,7 +94,7 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	// read Data
 	public func read(from file: File) -> Observable<Data> {
 		let fileManager = self.fileManager
-		return Observable.create { observer in
+		return Observable.create { emitter in
 			do {
 				let uri = try file.url(fileManager: fileManager)
 				if let path = file.path {
@@ -104,10 +104,10 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 					}
 				}
 				let data = try Data(contentsOf: uri)
-				observer.on(.next(data))
-				observer.on(.completed)
+				emitter.on(.next(data))
+				emitter.on(.completed)
 			} catch {
-				observer.on(.error(error))
+				emitter.on(.error(error))
 			}
 			return Disposables.create()
 		}

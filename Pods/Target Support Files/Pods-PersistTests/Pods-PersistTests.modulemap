@@ -1,6 +1,0 @@
-framework module Pods_PersistTests {
-  umbrella header "Pods-PersistTests-umbrella.h"
-
-  export *
-  module * { export * }
-}
