@@ -11,9 +11,37 @@ import RxSwift
 
 public class Schedulers {
 	
-	public static let io = ConcurrentDispatchQueueScheduler(qos: .userInitiated)
-	public static let utility = ConcurrentDispatchQueueScheduler(qos: .utility)
-	public static let background = ConcurrentDispatchQueueScheduler(qos: .background)
+	private static var ioInstance = {
+		return ConcurrentDispatchQueueScheduler(qos: .userInitiated)
+	}()
+	
+	private static var utilityInstance = {
+		return ConcurrentDispatchQueueScheduler(qos: .utility)
+	}()
+	
+	private static var backgroundInstance = {
+		return ConcurrentDispatchQueueScheduler(qos: .background)
+	}()
+	
+	private static var mainThreadInstance = {
+		return MainScheduler.asyncInstance
+	}()
 	
 	private init() {}
+	
+	public static func io() -> SchedulerType {
+		return ioInstance
+	}
+	
+	public static func utility() -> SchedulerType {
+		return utilityInstance
+	}
+	
+	public static func background() -> SchedulerType {
+		return backgroundInstance
+	}
+	
+	public static func mainThread() -> SchedulerType {
+		return mainThreadInstance
+	}
 }
