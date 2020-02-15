@@ -20,6 +20,7 @@
 		3DE2E47323F870DA002541B8 /* Observable+Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E47223F870DA002541B8 /* Observable+Threading.swift */; };
 		3DE2E47523F87166002541B8 /* Completable+Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E47423F87166002541B8 /* Completable+Threading.swift */; };
 		3DE2E47723F87194002541B8 /* Single+Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E47623F87194002541B8 /* Single+Threading.swift */; };
+		3DE2E47923F875B9002541B8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E47823F875B9002541B8 /* Persistance.swift */; };
 		3DFB93AD22987D7D0081659A /* PersistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB93AC22987D7D0081659A /* PersistError.swift */; };
 		3DFF5B742289A42900DCF709 /* Persist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFF5B6A2289A42900DCF709 /* Persist.framework */; };
 		3DFF5B792289A42900DCF709 /* PersistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B782289A42900DCF709 /* PersistTests.swift */; };
@@ -53,6 +54,7 @@
 		3DE2E47223F870DA002541B8 /* Observable+Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Threading.swift"; sourceTree = "<group>"; };
 		3DE2E47423F87166002541B8 /* Completable+Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Completable+Threading.swift"; sourceTree = "<group>"; };
 		3DE2E47623F87194002541B8 /* Single+Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Threading.swift"; sourceTree = "<group>"; };
+		3DE2E47823F875B9002541B8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		3DFB93AC22987D7D0081659A /* PersistError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistError.swift; sourceTree = "<group>"; };
 		3DFF5B6A2289A42900DCF709 /* Persist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Persist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFF5B6D2289A42900DCF709 /* Persist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Persist.h; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				3DB921B3228C36CC0029B5F7 /* URL+Common.swift */,
 				3DB921B5228C3B010029B5F7 /* String+Common.swift */,
 				3DFB93AC22987D7D0081659A /* PersistError.swift */,
+				3DE2E47823F875B9002541B8 /* Persistance.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */,
 				3DB921A2228C2B320029B5F7 /* File.swift in Sources */,
 				3DE2E47323F870DA002541B8 /* Observable+Threading.swift in Sources */,
+				3DE2E47923F875B9002541B8 /* Persistance.swift in Sources */,
 				3D156E57229918BB0089DC83 /* Schedulers.swift in Sources */,
 				3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */,
 				3DE2E47723F87194002541B8 /* Single+Threading.swift in Sources */,

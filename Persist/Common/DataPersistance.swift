@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-public protocol DataPeristance {
+public protocol DataPersistance {
 	
 	func write(data: Data, to file: File) -> Completable
 	func read(from file: File) -> Observable<Data>

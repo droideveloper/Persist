@@ -9,9 +9,9 @@
 import Foundation
 import RxSwift
 
-public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
+public class Persist: Persistance {
 		
-	private static var defaultInstance = {
+	private static var defaultInstance: Persistance = {
 		return Persist(fileManager: .default)
 	}()
 	
@@ -25,6 +25,9 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		self.encoder = encoder
 		self.decoder = decoder
 	}
+	
+	/* Delegation concept make those properties
+		 imposible may be we re initialize those we want to acccess
 	
 	public func encodingStrategies(outputFormating: JSONEncoder.OutputFormatting? = nil,
 																 dateEncoding: JSONEncoder.DateEncodingStrategy? = nil,
@@ -47,6 +50,7 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		decoder.nonConformingFloatDecodingStrategy = nonConformingFloatDecoding ?? decoder.nonConformingFloatDecodingStrategy
 		decoder.keyDecodingStrategy = keyDecoding ?? decoder.keyDecodingStrategy
 	}
+*/
 	
 	// write Data
 	public func write(data: Data, to file: File) -> Completable {
@@ -77,7 +81,8 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 				if let path = file.path {
 					let allowedToRead = fileManager.fileExists(atPath: path)
 					if !allowedToRead {
-						throw PersistError.iilegalIO(name: file.name)
+						let error: PersistError = .iilegalIO(name: file.name)
+						throw error
 					}
 				}
 				let data = try Data(contentsOf: uri)
@@ -110,7 +115,8 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			return write(data: data, to: file)
 		} else {
 			return Completable.create { observer in
-				observer(.error(PersistError.illegalType(type: "only .png or .jpg supported")))
+				let error: PersistError = .illegalType(type: "only .pgn or .jpg supported")
+				observer(.error(error))
 				return Disposables.create()
 			}
 		}
@@ -135,7 +141,8 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			if let image = UIImage(data: data) {
 				return Observable.just(image)
 			}
-			return Observable.error(PersistError.illegalType(type: "\(String(describing: UIImage.self))"))
+			let error: PersistError = .illegalType(type: "\(String(describing: UIImage.self))")
+			return Observable.error(error)
 		}
 	}
 	
@@ -198,7 +205,8 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 				if let path = file.path {
 					let allowedToRead = fileManager.fileExists(atPath: path)
 					if !allowedToRead {
-						throw PersistError.iilegalIO(name: file.name)
+						let error: PersistError = .iilegalIO(name: file.name)
+						throw error
 					}
 				}
 				let value = try decoder.decode(T.self, from: data)
@@ -233,11 +241,11 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			.subscribe(onNext: success, onError: error)
 	}
 	
-	public static func `default`() -> Persist {
+	public static func `default`() -> Persistance {
 		return defaultInstance
 	}
 	
-	public static func data() -> DataPeristance {
+	public static func data() -> DataPersistance {
 		return defaultInstance
 	}
 	
