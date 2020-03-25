@@ -134,6 +134,6 @@ MVI architecture implementation basic and needs for iOS framework to create vali
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "RxSwift", "~> 5.0"	
+  s.dependency "RxSwift"	
 
 end

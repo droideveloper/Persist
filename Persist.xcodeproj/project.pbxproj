@@ -16,7 +16,10 @@
 		3DB921AE228C31EF0029B5F7 /* ImagePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921AD228C31EF0029B5F7 /* ImagePersistance.swift */; };
 		3DB921B0228C32330029B5F7 /* CodablePersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921AF228C32330029B5F7 /* CodablePersistance.swift */; };
 		3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B3228C36CC0029B5F7 /* URL+Common.swift */; };
-		3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB921B5228C3B010029B5F7 /* String+Common.swift */; };
+		3DE2E47323F870DA002541B8 /* Observable+Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E47223F870DA002541B8 /* Observable+Threading.swift */; };
+		3DE2E47523F87166002541B8 /* Completable+Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E47423F87166002541B8 /* Completable+Threading.swift */; };
+		3DE2E47723F87194002541B8 /* Single+Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E47623F87194002541B8 /* Single+Threading.swift */; };
+		3DE2E47923F875B9002541B8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE2E47823F875B9002541B8 /* Persistance.swift */; };
 		3DFB93AD22987D7D0081659A /* PersistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFB93AC22987D7D0081659A /* PersistError.swift */; };
 		3DFF5B742289A42900DCF709 /* Persist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DFF5B6A2289A42900DCF709 /* Persist.framework */; };
 		3DFF5B792289A42900DCF709 /* PersistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF5B782289A42900DCF709 /* PersistTests.swift */; };
@@ -46,7 +49,10 @@
 		3DB921AD228C31EF0029B5F7 /* ImagePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePersistance.swift; sourceTree = "<group>"; };
 		3DB921AF228C32330029B5F7 /* CodablePersistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodablePersistance.swift; sourceTree = "<group>"; };
 		3DB921B3228C36CC0029B5F7 /* URL+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Common.swift"; sourceTree = "<group>"; };
-		3DB921B5228C3B010029B5F7 /* String+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
+		3DE2E47223F870DA002541B8 /* Observable+Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Threading.swift"; sourceTree = "<group>"; };
+		3DE2E47423F87166002541B8 /* Completable+Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Completable+Threading.swift"; sourceTree = "<group>"; };
+		3DE2E47623F87194002541B8 /* Single+Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Single+Threading.swift"; sourceTree = "<group>"; };
+		3DE2E47823F875B9002541B8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		3DFB93AC22987D7D0081659A /* PersistError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistError.swift; sourceTree = "<group>"; };
 		3DFF5B6A2289A42900DCF709 /* Persist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Persist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DFF5B6D2289A42900DCF709 /* Persist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Persist.h; sourceTree = "<group>"; };
@@ -134,8 +140,8 @@
 				3DB921AD228C31EF0029B5F7 /* ImagePersistance.swift */,
 				3DB921AF228C32330029B5F7 /* CodablePersistance.swift */,
 				3DB921B3228C36CC0029B5F7 /* URL+Common.swift */,
-				3DB921B5228C3B010029B5F7 /* String+Common.swift */,
 				3DFB93AC22987D7D0081659A /* PersistError.swift */,
+				3DE2E47823F875B9002541B8 /* Persistance.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -145,6 +151,9 @@
 			children = (
 				3DFF5B862289A57800DCF709 /* Constants.swift */,
 				3D156E56229918BB0089DC83 /* Schedulers.swift */,
+				3DE2E47223F870DA002541B8 /* Observable+Threading.swift */,
+				3DE2E47423F87166002541B8 /* Completable+Threading.swift */,
+				3DE2E47623F87194002541B8 /* Single+Threading.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -332,12 +341,15 @@
 				3DB921AE228C31EF0029B5F7 /* ImagePersistance.swift in Sources */,
 				3DFF5B872289A57800DCF709 /* Constants.swift in Sources */,
 				3DB921AA228C31410029B5F7 /* Persist.swift in Sources */,
-				3DB921B6228C3B010029B5F7 /* String+Common.swift in Sources */,
 				3DB921A2228C2B320029B5F7 /* File.swift in Sources */,
+				3DE2E47323F870DA002541B8 /* Observable+Threading.swift in Sources */,
+				3DE2E47923F875B9002541B8 /* Persistance.swift in Sources */,
 				3D156E57229918BB0089DC83 /* Schedulers.swift in Sources */,
 				3DB921B4228C36CC0029B5F7 /* URL+Common.swift in Sources */,
+				3DE2E47723F87194002541B8 /* Single+Threading.swift in Sources */,
 				3DB921A4228C2B4A0029B5F7 /* Folder.swift in Sources */,
 				3DFB93AD22987D7D0081659A /* PersistError.swift in Sources */,
+				3DE2E47523F87166002541B8 /* Completable+Threading.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

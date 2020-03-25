@@ -9,33 +9,11 @@
 import Foundation
 import RxSwift
 
-public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
-	
-	public static var `default`: Persist {
-		get {
-			return instance
-		}
-	}
-	
-	public static var `data`: DataPeristance {
-		get {
-			return `default`
-		}
-	}
-	
-	public static var `image`: ImagePersistance {
-		get {
-			return `default`
-		}
-	}
-	
-	public static var `codable`: CodablePersistance {
-		get {
-			return `default`
-		}
-	}
-
-	private static let instance = Persist(fileManager: .default)
+public class Persist: Persistance {
+		
+	private static var defaultInstance: Persistance = {
+		return Persist(fileManager: .default)
+	}()
 	
 	private let fileManager: FileManager
 	private let decoder: JSONDecoder
@@ -47,6 +25,9 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		self.encoder = encoder
 		self.decoder = decoder
 	}
+	
+	/* Delegation concept make those properties
+		 imposible may be we re initialize those we want to acccess
 	
 	public func encodingStrategies(outputFormating: JSONEncoder.OutputFormatting? = nil,
 																 dateEncoding: JSONEncoder.DateEncodingStrategy? = nil,
@@ -69,6 +50,7 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 		decoder.nonConformingFloatDecodingStrategy = nonConformingFloatDecoding ?? decoder.nonConformingFloatDecodingStrategy
 		decoder.keyDecodingStrategy = keyDecoding ?? decoder.keyDecodingStrategy
 	}
+*/
 	
 	// write Data
 	public func write(data: Data, to file: File) -> Completable {
@@ -86,9 +68,7 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	}
 	
 	public func writeAsync(data: Data, to file: File) -> Disposable {
-		return write(data: data, to: file)
-			.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance)
+		return write(data: data, to: file).async()
 			.subscribe()
 	}
 	
@@ -101,7 +81,8 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 				if let path = file.path {
 					let allowedToRead = fileManager.fileExists(atPath: path)
 					if !allowedToRead {
-						throw PersistError.iilegalIO(name: file.name)
+						let error: PersistError = .iilegalIO(name: file.name)
+						throw error
 					}
 				}
 				let data = try Data(contentsOf: uri)
@@ -116,15 +97,13 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	
 	public func readAsync(from file: File, success: @escaping (Data) -> Void) -> Disposable {
 		let dataSource: Observable<Data> = read(from: file)
-		return dataSource.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance) // calling back to UI
+		return dataSource.async()
 			.subscribe(onNext: success)
 	}
 	
 	public func readAsync(from file: File, success: @escaping (Data) -> Void, error: @escaping (Error) -> Void) -> Disposable {
 		let dataSource: Observable<Data> = read(from: file)
-		return dataSource.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance) // calling back UI
+		return dataSource.async()
 			.subscribe(onNext: success, onError: error)
 	}
 	
@@ -136,16 +115,15 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			return write(data: data, to: file)
 		} else {
 			return Completable.create { observer in
-				observer(.error(PersistError.illegalType(type: "only .png or .jpg supported")))
+				let error: PersistError = .illegalType(type: "only .pgn or .jpg supported")
+				observer(.error(error))
 				return Disposables.create()
 			}
 		}
 	}
 	
 	public func writeAsync(image: UIImage, to file: File) -> Disposable {
-		return write(image: image, to: file)
-			.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance)
+		return write(image: image, to: file).async()
 			.subscribe()
 	}
 	
@@ -163,21 +141,20 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 			if let image = UIImage(data: data) {
 				return Observable.just(image)
 			}
-			return Observable.error(PersistError.illegalType(type: "\(String(describing: UIImage.self))"))
+			let error: PersistError = .illegalType(type: "\(String(describing: UIImage.self))")
+			return Observable.error(error)
 		}
 	}
 	
 	public func readAsync(from file: File, success: @escaping (UIImage) -> Void) -> Disposable {
 		let imageSource: Observable<UIImage> = read(from: file)
-		return imageSource.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance)
+		return imageSource.async()
 			.subscribe(onNext: success)
 	}
 	
 	public func readAsync(from file: File, success: @escaping (UIImage) -> Void, error: @escaping (Error) -> Void) -> Disposable {
 		let imageSource: Observable<UIImage> = read(from: file)
-		return imageSource.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance)
+		return imageSource.async()
 			.subscribe(onNext: success, onError: error)
 	}
 	
@@ -196,9 +173,25 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	}
 	
 	public func writeAsync<T>(data: T, to file: File) -> Disposable where T : Encodable {
-		return write(value: data, to: file)
-			.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance)
+		return write(value: data, to: file).async()
+			.subscribe()
+	}
+	
+	public func write<T: Encodable>(value: [T], to file: File) -> Completable {
+		let encoder = self.encoder
+		let source = Observable.just(value)
+		return source.flatMap { [weak weakSelf = self] value -> Completable in
+			do {
+				let data = try encoder.encode(value)
+				return weakSelf?.write(data: data, to: file) ?? Completable.never()
+			} catch {
+				return Completable.error(error)
+			}
+		}.asCompletable()
+	}
+	
+	public func writeAsync<T>(data: [T], to file: File) -> Disposable where T : Encodable {
+		return write(value: data, to: file).async()
 			.subscribe()
 	}
 	
@@ -212,7 +205,8 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 				if let path = file.path {
 					let allowedToRead = fileManager.fileExists(atPath: path)
 					if !allowedToRead {
-						throw PersistError.iilegalIO(name: file.name)
+						let error: PersistError = .iilegalIO(name: file.name)
+						throw error
 					}
 				}
 				let value = try decoder.decode(T.self, from: data)
@@ -225,15 +219,41 @@ public class Persist: DataPeristance, ImagePersistance, CodablePersistance {
 	
 	public func readAsync<T>(from file: File, success: @escaping (T) -> Void) -> Disposable where T : Decodable {
 		let dataSource: Observable<T> = read(from: file)
-		return dataSource.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance)
+		return dataSource.async()
 			.subscribe(onNext: success)
 	}
 	
 	public func readAsync<T>(from file: File, success: @escaping (T) -> Void, error: @escaping (Error) -> Void) -> Disposable where T : Decodable {
 		let dataSource: Observable<T> = read(from: file)
-		return dataSource.subscribeOn(Schedulers.io)
-      .observeOn(MainScheduler.asyncInstance)
+		return dataSource.async()
 			.subscribe(onNext: success, onError: error)
+	}
+	
+	public func readAsync<T>(from file: File, success: @escaping ([T]) -> Void) -> Disposable where T : Decodable {
+		let dataSource: Observable<[T]> = read(from: file)
+		return dataSource.async()
+			.subscribe(onNext: success)
+	}
+	
+	public func readAsync<T>(from file: File, success: @escaping ([T]) -> Void, error: @escaping (Error) -> Void) -> Disposable where T : Decodable {
+		let dataSource: Observable<[T]> = read(from: file)
+		return dataSource.async()
+			.subscribe(onNext: success, onError: error)
+	}
+	
+	public static func `default`() -> Persistance {
+		return defaultInstance
+	}
+	
+	public static func data() -> DataPersistance {
+		return defaultInstance
+	}
+	
+	public static func image() -> ImagePersistance {
+		return defaultInstance
+	}
+	
+	public static func codable() -> CodablePersistance {
+		return defaultInstance
 	}
 }
