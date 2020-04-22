@@ -1,9 +1,5 @@
 # Persist
 
-[![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://nodesource.com/products/nsolid)
-
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 Persist is a RxSwift helper for persisting stuff line (Codable) Encodable-Decodable, UIImage (.png or .jpg) along with Data into disk.
 
   - Supports Coddable (Encodable or Decodable)
