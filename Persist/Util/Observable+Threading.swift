@@ -11,7 +11,7 @@ import RxSwift
 
 extension ObservableType {
 	
-	public func async() -> Observable<Element> {
+	public func async() -> Observable<E> {
 		return self.subscribeOn(Schedulers.io())
 			.observeOn(Schedulers.mainThread())
 	}

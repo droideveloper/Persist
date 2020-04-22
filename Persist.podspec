@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "Persist"
-  s.version      = "0.0.1"
+  s.version      = "1.0.0"
   s.summary      = "Persist, is library that implements, persistence with RxSwift architecture for iOS framework."
 
   # This description is used to generate tags and improve search results.
@@ -134,6 +134,6 @@ MVI architecture implementation basic and needs for iOS framework to create vali
   # s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "RxSwift"	
+  s.dependency "RxSwift", "~> 4.5" 	
 
 end
