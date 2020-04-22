@@ -5,7 +5,7 @@ target 'Persist' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-    pod 'RxSwift', '~> 5'
+    pod 'RxSwift', '~> 4.5'
   # Pods for Persist
 
   target 'PersistTests' do
