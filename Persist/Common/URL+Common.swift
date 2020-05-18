@@ -24,9 +24,9 @@ public extension URL {
 	
 	func checkPathSanity(path: String?, name: String) throws -> URL {
 		guard let path = path else {
-			return self.appendingPathComponent("/\(name)", isDirectory: false)
+			return self.appendingPathComponent("\(name)", isDirectory: false)
 		}
 		return self.appendingPathComponent(path, isDirectory: true)
-			.appendingPathComponent("/\(name)", isDirectory: false)
+			.appendingPathComponent("\(name)", isDirectory: false)
 	}
 }
